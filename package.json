@@ -1,0 +1,11 @@
+{
+  "name": "cyberclear-project-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-ready CyberClear research project website",
+  "type": "module",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "start": "node serve.mjs"
+  }
+}

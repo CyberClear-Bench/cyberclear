@@ -1,0 +1,156 @@
+[
+  {
+    "file": "static/pdfs/figures/figure-01-overview.pdf",
+    "title": "Overview of CyberClear",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 2,
+    "crop_points_top_left": [
+      106.5,
+      141.2058,
+      505.4977,
+      234.355
+    ],
+    "width": 398.9977,
+    "height": 93.1492
+  },
+  {
+    "file": "static/pdfs/figures/figure-02-construction.pdf",
+    "title": "The construction pipeline of CyberClear",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 4,
+    "crop_points_top_left": [
+      106.5,
+      204.7796,
+      505.4955,
+      351.778
+    ],
+    "width": 398.9955,
+    "height": 146.9984
+  },
+  {
+    "file": "static/pdfs/figures/figure-03-attack-behaviors.pdf",
+    "title": "Distribution of attack behaviors",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 5,
+    "crop_points_top_left": [
+      324.301,
+      448.3684,
+      505.4936,
+      563.282
+    ],
+    "width": 181.1926,
+    "height": 114.9136
+  },
+  {
+    "file": "static/pdfs/figures/figure-04-cyberprovenance.pdf",
+    "title": "Overview of CyberProvenance",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 6,
+    "crop_points_top_left": [
+      106.5,
+      160.7167,
+      505.5009,
+      264.428
+    ],
+    "width": 399.0009,
+    "height": 103.7113
+  },
+  {
+    "file": "static/pdfs/figures/figure-05-difficulty.pdf",
+    "title": "Average semantic scores across difficulty levels",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 8,
+    "crop_points_top_left": [
+      106.5,
+      494.5851,
+      505.4989,
+      617.06
+    ],
+    "width": 398.9989,
+    "height": 122.4749
+  },
+  {
+    "file": "static/pdfs/figures/figure-06-case-study.pdf",
+    "title": "Case study comparing AgentVerse and CyberProvenance",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 9,
+    "crop_points_top_left": [
+      106.5,
+      80.3599,
+      505.4922,
+      221.037
+    ],
+    "width": 398.9922,
+    "height": 140.6771
+  },
+  {
+    "file": "static/pdfs/figures/figure-07-attack-stages.pdf",
+    "title": "Average semantic scores across attack stage levels",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 9,
+    "crop_points_top_left": [
+      333.747,
+      303.0054,
+      493.5634,
+      441.97
+    ],
+    "width": 159.8164,
+    "height": 138.9646
+  },
+  {
+    "file": "static/pdfs/figures/figure-08-human-consistency.pdf",
+    "title": "Consistency with human judgments",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 17,
+    "crop_points_top_left": [
+      106.5,
+      80.3623,
+      505.4897,
+      290.321
+    ],
+    "width": 398.9897,
+    "height": 209.9587
+  },
+  {
+    "file": "static/pdfs/figures/figure-09-code-difficulty.pdf",
+    "title": "Code-level similarity across difficulty levels",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 18,
+    "crop_points_top_left": [
+      106.5,
+      80.3554,
+      505.5026,
+      396.294
+    ],
+    "width": 399.0026,
+    "height": 315.9386
+  },
+  {
+    "file": "static/pdfs/figures/figure-10-code-stages.pdf",
+    "title": "Code-level similarity across attack stage levels",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 18,
+    "crop_points_top_left": [
+      106.5,
+      451.2482,
+      505.4842,
+      601.191
+    ],
+    "width": 398.9842,
+    "height": 149.9428
+  },
+  {
+    "file": "static/pdfs/figures/table-03-main-results.pdf",
+    "title": "Main experimental results on CyberClear",
+    "source": "static/pdfs/paper.pdf",
+    "source_page": 7,
+    "crop_points_top_left": [
+      108.0,
+      181.0,
+      504.0,
+      691.0
+    ],
+    "width": 396.0,
+    "height": 510.0
+  }
+]

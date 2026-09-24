@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CyberClear: A Benchmark for LLM Agent Systems on APT Attack Chain Provenance</title>
+  <meta name="description" content="Reconstructing APT attack chains from long-context security logs: the CyberClear benchmark and the CyberProvenance agent harness.">
+  <meta name="keywords" content="CyberClear, CyberProvenance, LLM agents, APT, attack chain provenance, cybersecurity, benchmark">
+  <meta name="author" content="Qi Chen, Fushuo Huo, Hangli Shen, Jingcai Guo, Shuhao Li, Guang Cheng">
+  <meta name="theme-color" content="#2563eb">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CyberClear">
+  <meta property="og:title" content="CyberClear: A Benchmark for LLM Agent Systems on APT Attack Chain Provenance">
+  <meta property="og:description" content="Reconstructing APT attack chains from long-context security logs: the CyberClear benchmark and the CyberProvenance agent harness.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CyberClear: A Benchmark for LLM Agent Systems on APT Attack Chain Provenance">
+  <meta name="twitter:description" content="Reconstructing APT attack chains from long-context security logs: the CyberClear benchmark and the CyberProvenance agent harness.">
+  <meta name="citation_title" content="CyberClear: A Benchmark for LLM Agent Systems on APT Attack Chain Provenance">
+  <meta name="citation_author" content="Qi Chen">
+  <meta name="citation_author" content="Fushuo Huo">
+  <meta name="citation_author" content="Hangli Shen">
+  <meta name="citation_author" content="Jingcai Guo">
+  <meta name="citation_author" content="Shuhao Li">
+  <meta name="citation_author" content="Guang Cheng">
+  <meta name="citation_pdf_url" content="static/pdfs/paper.pdf">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/pdf-figures.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/vendor/pdfjs-worker.js"></script>
+  <script defer src="static/js/vendor/pdfjs.js"></script>
+  <script defer src="static/js/vendor/pdfjs-cmaps.js"></script>
+  <script defer src="static/js/pdf-figure-data.js"></script>
+  <script defer src="static/js/pdf-figures.js"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "CyberClear: A Benchmark for LLM Agent Systems on APT Attack Chain Provenance", "description": "Reconstructing APT attack chains from long-context security logs: the CyberClear benchmark and the CyberProvenance agent harness.", "author": [{"@type": "Person", "name": "Qi Chen", "affiliation": [{"@type": "Organization", "name": "School of Cyber Science and Engineering, Southeast University"}]}, {"@type": "Person", "name": "Fushuo Huo", "affiliation": [{"@type": "Organization", "name": "School of Cyber Science and Engineering, Southeast University"}, {"@type": "Organization", "name": "The Hong Kong Polytechnic University"}]}, {"@type": "Person", "name": "Hangli Shen", "affiliation": [{"@type": "Organization", "name": "School of Cyber Science and Engineering, Southeast University"}]}, {"@type": "Person", "name": "Jingcai Guo", "affiliation": [{"@type": "Organization", "name": "The Hong Kong Polytechnic University"}]}, {"@type": "Person", "name": "Shuhao Li", "affiliation": [{"@type": "Organization", "name": "The Hong Kong University of Science and Technology"}]}, {"@type": "Person", "name": "Guang Cheng", "affiliation": [{"@type": "Organization", "name": "School of Cyber Science and Engineering, Southeast University"}]}], "abstract": "Large language model (LLM) agents have demonstrated promising capabilities in cybersecurity tasks, yet their ability to reconstruct complete Advanced Persistent Threat (APT) attack campaigns from complex security logs remains largely unexplored. Existing cybersecurity benchmarks for agents mainly focus on vulnerability discovery, exploitation, and security analysis tasks, leaving the evaluation of attack chain provenance under realistic security logs insufficiently studied. To address this gap, we introduce CyberClear, a benchmark for evaluating LLM agents and advanced agent systems on APT attack chain provenance from long-context security logs. CyberClear covers both single-step attacks and multi-stage attack chains, requiring agents to identify attack evidence, infer attack progression, and generate provenance graphs containing entities, causal relationships, MITRE ATT&CK techniques, and forensic evidence. To enable comprehensive evaluation, we develop an evaluation method tailored to APT attack chain provenance. Unlike conventional text similarity metrics that focus on surface-level matching, our evaluation examines whether reconstructed graphs preserve the semantics of attack chains across single-step behavior correctness, multi-step behavior identification, temporal and causal consistency, entity and relationship fidelity, and overall attack narrative consistency. Advanced multi-agent systems powered by state-of-the-art LLMs still struggle on CyberClear, motivating us to propose CyberProvenance, an agent cyber harness designed for multi-agents that augments LLM agents with evidence accumulation, execution-based validation, and feedback-guided refinement mechanisms for reliable attack-chain provenance. Extensive evaluations on CyberClear demonstrate the effectiveness of CyberProvenance in improving evidence reasoning, execution-grounded validation, and complete APT attack chain reconstruction. The full benchmark and code will be released publicly upon publication.", "creativeWorkStatus": "Under review at ICLR 2027"}</script>
+</head>
+<body>
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" aria-expanded="false" aria-controls="moreWorksDropdown"><i class="fas fa-list" aria-hidden="true"></i> Paper contents <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i></button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header"><h4>Explore CyberClear</h4><button class="close-btn" onclick="toggleMoreWorks()" aria-label="Close contents"><i class="fas fa-times" aria-hidden="true"></i></button></div>
+      <div class="works-list"><a href="#benchmark" class="work-item"><div class="work-info"><h5>CyberClear benchmark</h5><p>Dataset construction and attack coverage</p></div><i class="fas fa-arrow-down" aria-hidden="true"></i></a><a href="#method" class="work-item"><div class="work-info"><h5>CyberProvenance</h5><p>Evidence, execution, and refinement</p></div><i class="fas fa-arrow-down" aria-hidden="true"></i></a><a href="#results" class="work-item"><div class="work-info"><h5>Experimental results</h5><p>Framework comparisons and analysis</p></div><i class="fas fa-arrow-down" aria-hidden="true"></i></a><a href="#paper" class="work-item"><div class="work-info"><h5>Read the paper</h5><p>Full manuscript and appendix</p></div><i class="fas fa-arrow-down" aria-hidden="true"></i></a></div>
+    </div>
+  </div>
+  <main id="main-content">
+  <section class="hero publication-header"><div class="hero-body"><div class="container is-max-desktop"><div class="columns is-centered"><div class="column has-text-centered">
+    <h1 class="title is-1 publication-title">CyberClear: A Benchmark for LLM Agent Systems on APT Attack Chain Provenance</h1>
+    <div class="is-size-5 publication-authors"><span class="author-block">Qi Chen<sup>1</sup></span>,
+      <span class="author-block">Fushuo Huo<sup>1,2,*</sup></span>,
+      <span class="author-block">Hangli Shen<sup>1,†</sup></span>,
+      <span class="author-block">Jingcai Guo<sup>2</sup></span>,
+      <span class="author-block">Shuhao Li<sup>3</sup></span>,
+      <span class="author-block">Guang Cheng<sup>1</sup></span></div>
+    <div class="is-size-5 publication-authors publication-affiliations"><span class="author-block"><sup>1</sup>School of Cyber Science and Engineering, Southeast University</span><br>
+      <span class="author-block"><sup>2</sup>The Hong Kong Polytechnic University</span><br>
+      <span class="author-block"><sup>3</sup>The Hong Kong University of Science and Technology</span><br>
+      <span class="author-block"><sup>4</sup>Zhongguancun Laboratory</span></div>
+    <div class="publication-author-notes"><span>* Corresponding author.</span> <span>† Equal contribution.</span></div>
+    <div class="column has-text-centered"><div class="publication-links"><span class="link-block"><a href="static/pdfs/paper.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper</span></a></span><span class="link-block"><a href="#dataset-resource" class="external-link button is-normal is-rounded is-dark" title="Hugging Face dataset · link forthcoming"><span class="icon"><img src="static/images/huggingface.svg" width="22" height="22" alt="" aria-hidden="true"></span><span>Dataset</span></a></span><span class="link-block"><a href="#code-resource" class="external-link button is-normal is-rounded is-dark" title="GitHub code · link forthcoming"><span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Code</span></a></span><span class="link-block"><a href="#BibTeX"  class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-right" aria-hidden="true"></i></span><span>BibTeX</span></a></span></div></div>
+  </div></div></div></div></section>
+  <section class="hero teaser"><div class="container is-max-desktop"><div class="hero-body">
+    <figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-01-overview.pdf" style="--pdf-ratio:4.28343" role="img" aria-label="Overview of CyberClear">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>From security logs to complete attack chains.</strong> CyberClear evaluates whether agents can discover evidence, infer attack progression, and reconstruct APT campaigns without prior attack clues.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-01-overview.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure>
+  </div></div></section>
+  <section class="section hero is-light" id="abstract"><div class="container is-max-desktop"><div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+    <h2 class="title is-3">Abstract</h2><div class="content has-text-justified"><p>Large language model (LLM) agents have demonstrated promising capabilities in cybersecurity tasks, yet their ability to reconstruct complete Advanced Persistent Threat (APT) attack campaigns from complex security logs remains largely unexplored. Existing cybersecurity benchmarks for agents mainly focus on vulnerability discovery, exploitation, and security analysis tasks, leaving the evaluation of attack chain provenance under realistic security logs insufficiently studied. To address this gap, we introduce CyberClear, a benchmark for evaluating LLM agents and advanced agent systems on APT attack chain provenance from long-context security logs. CyberClear covers both single-step attacks and multi-stage attack chains, requiring agents to identify attack evidence, infer attack progression, and generate provenance graphs containing entities, causal relationships, MITRE ATT&amp;CK techniques, and forensic evidence. To enable comprehensive evaluation, we develop an evaluation method tailored to APT attack chain provenance. Unlike conventional text similarity metrics that focus on surface-level matching, our evaluation examines whether reconstructed graphs preserve the semantics of attack chains across single-step behavior correctness, multi-step behavior identification, temporal and causal consistency, entity and relationship fidelity, and overall attack narrative consistency. Advanced multi-agent systems powered by state-of-the-art LLMs still struggle on CyberClear, motivating us to propose CyberProvenance, an agent cyber harness designed for multi-agents that augments LLM agents with evidence accumulation, execution-based validation, and feedback-guided refinement mechanisms for reliable attack-chain provenance. Extensive evaluations on CyberClear demonstrate the effectiveness of CyberProvenance in improving evidence reasoning, execution-grounded validation, and complete APT attack chain reconstruction. The full benchmark and code will be released publicly upon publication.</p></div>
+  </div></div></div></section>
+<section class="hero is-small" id="benchmark">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">The CyberClear Benchmark</h2>
+    <div class="content"><p><strong>450 benchmark instances · 89 attack behaviors · 531K characters per instance on average.</strong> CyberClear contains 318 single-step and 132 multi-step instances, organized into 318 easy, 122 medium, and 10 hard cases. Each instance pairs defender observations with an expert-verified attack provenance graph.</p><p>The construction pipeline combines isolated attack execution, defender-side evidence collection, ground-truth graph construction, and expert verification. The benchmark asks agents to recover entities, causal relations, ATT&amp;CK techniques, and forensic evidence from the logs.</p></div><div id="benchmark-carousel" class="carousel results-carousel"><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-02-construction.pdf" style="--pdf-ratio:2.71428" role="img" aria-label="The construction pipeline of CyberClear">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 2.</strong> CyberClear construction: collect evidence in isolated environments, construct attack-chain graphs, and verify the resulting dataset.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-02-construction.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-03-attack-behaviors.pdf" style="--pdf-ratio:1.57677" role="img" aria-label="Distribution of attack behaviors">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 3.</strong> Coverage of attack behaviors, including Discovery, Reconnaissance, Credential Access, Persistence, Execution, and composite attacks.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-03-attack-behaviors.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div></div>
+  </div></div>
+</section><section class="hero is-small is-light" id="method">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">CyberProvenance</h2>
+    <div class="content"><p>CyberProvenance connects three specialized agents through evidence accumulation, execution-based validation, and feedback-guided refinement.</p></div><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-04-cyberprovenance.pdf" style="--pdf-ratio:3.84723" role="img" aria-label="Overview of CyberProvenance">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 4.</strong> The CyberProvenance harness grounds attack-chain reconstruction in log evidence and execution feedback.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-04-cyberprovenance.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure><div class="content"><ol><li><strong>LogAnalysis Agent:</strong> searches defender logs, accumulates findings in EvidenceMemory, and drafts an attack provenance graph.</li><li><strong>AttackValidation Agent:</strong> checks predicted behaviors through controlled execution and compares resulting observations with the evidence.</li><li><strong>Check Agent:</strong> identifies inconsistencies and directs local refinement while preserving validated parts of the graph.</li></ol></div>
+  </div></div>
+</section><section class="hero is-small" id="results">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">Experimental Results</h2>
+    <div class="content"><p>The paper evaluates 11 agent configurations across DeepSeek-V4-Flash, Qwen3.8-Max, and GPT-5.6-Terra. Code-level metrics measure graph generation and surface similarity; semantic metrics assess behavior coverage, temporal and causal consistency, entity fidelity, and attack narrative consistency.</p><p>CyberProvenance improves attack-chain reconstruction across the evaluated settings. The results also show that valid graph code alone does not guarantee a faithful reconstruction of an attack.</p></div><figure class="paper-figure results-table">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/table-03-main-results.pdf" style="--pdf-ratio:0.77647" role="img" aria-label="Main experimental results on CyberClear">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Table 3.</strong> Main results on CyberClear. Within each method, the rows follow DeepSeek-V4-Flash, Qwen3.8-Max, and GPT-5.6-Terra. Blue cells mark the best result for each metric.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/table-03-main-results.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure>
+  </div></div>
+</section><section class="hero is-small is-light" id="analysis">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">Performance Analysis</h2>
+    <div id="analysis-carousel" class="carousel results-carousel"><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-05-difficulty.pdf" style="--pdf-ratio:3.25780" role="img" aria-label="Average semantic scores across difficulty levels">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 5.</strong> Semantic performance across easy, medium, and hard instances. Longer, more complex evidence makes reconstruction more difficult.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-05-difficulty.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-07-attack-stages.pdf" style="--pdf-ratio:1.15005" role="img" aria-label="Average semantic scores across attack stage levels">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 7.</strong> Semantic performance on single-stage and multi-stage attacks across three LLM backbones.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-07-attack-stages.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-08-human-consistency.pdf" style="--pdf-ratio:1.90032" role="img" aria-label="Consistency with human judgments">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 8.</strong> Agreement between the GPT-5.6-Terra evaluator and human judgments on provenance quality.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-08-human-consistency.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-09-code-difficulty.pdf" style="--pdf-ratio:1.26291" role="img" aria-label="Code-level similarity across difficulty levels">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 9.</strong> BLEU, ROUGE-L, and CodeBLEU across difficulty levels.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-09-code-difficulty.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div><div class="item"><figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-10-code-stages.pdf" style="--pdf-ratio:2.66091" role="img" aria-label="Code-level similarity across attack stage levels">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 10.</strong> Code-level similarity on single-stage and multi-stage attacks.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-10-code-stages.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure></div></div>
+  </div></div>
+</section><section class="hero is-small" id="case-study">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">Evidence-Grounded Case Study</h2>
+    <figure class="paper-figure ">
+      <div class="pdf-canvas-frame" data-pdf="static/pdfs/figures/figure-06-case-study.pdf" style="--pdf-ratio:2.83623" role="img" aria-label="Case study comparing AgentVerse and CyberProvenance">
+        <p class="pdf-loading">Loading figure…</p>
+      </div>
+      <figcaption class="subtitle has-text-centered"><strong>Figure 6.</strong> CyberProvenance removes unsupported causal relations by checking reconstructed edges against execution evidence.</figcaption>
+      <p class="pdf-source has-text-centered"><a href="static/pdfs/figures/figure-06-case-study.pdf" target="_blank" rel="noopener">Open figure PDF <span aria-hidden="true">↗</span></a></p>
+    </figure><div class="content"><p>In this example, <code>python3</code> launches <code>bash</code>. Bash then invokes both <code>stty</code> and <code>chmod</code>, and <code>chmod</code> changes permissions on <code>linpeas.sh</code>. CyberProvenance recovers this branching structure and corrects unsupported dependencies introduced by AgentVerse.</p></div>
+  </div></div>
+</section><section class="hero is-small is-light" id="paper">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">Paper</h2>
+    <div class="content"><p>Read the complete 40-page manuscript, including benchmark details, evaluation rubrics, ablations, and additional case studies.</p><p><a href="static/pdfs/paper.pdf" target="_blank" rel="noopener">Open full paper PDF ↗</a> · <a href="static/pdfs/paper.pdf" download="CyberClear.pdf">Download paper</a></p></div>
+<iframe class="paper-viewer" src="static/pdfs/paper.pdf#view=FitH" title="CyberClear full paper PDF" width="100%" height="550" loading="lazy"></iframe>
+  </div></div>
+</section><section class="hero is-small" id="resources">
+  <div class="hero-body"><div class="container is-max-desktop">
+    <h2 class="title is-3">Code &amp; Data</h2>
+    <div class="content">
+      <p>The full benchmark and code will be released publicly upon publication.</p>
+      <p id="dataset-resource" class="resource-status"><img src="static/images/huggingface.svg" width="22" height="22" alt="" aria-hidden="true"> <strong>Dataset on Hugging Face</strong> <span>— Link forthcoming.</span></p>
+      <p id="code-resource" class="resource-status"><i class="fab fa-github" aria-hidden="true"></i> <strong>Code on GitHub</strong> <span>— Link forthcoming.</span></p>
+    </div>
+  </div></div>
+</section><section class="section" id="BibTeX"><div class="container is-max-desktop content">
+  <div class="bibtex-header"><h2 class="title">BibTeX</h2><button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard"><i class="fas fa-copy" aria-hidden="true"></i><span class="copy-text" aria-live="polite">Copy</span></button></div>
+  <p>Citation for the manuscript. <a href="static/pdfs/cyberclear.bib" download>Download BibTeX</a></p>
+  <pre id="bibtex-code"><code>@misc{cyberclear,
+  title = {{CyberClear}: A Benchmark for {LLM} Agent Systems
+           on {APT} Attack Chain Provenance},
+  author = {Chen, Qi and Huo, Fushuo and Shen, Hangli and Guo, Jingcai and Li, Shuhao and Cheng, Guang},
+  note = {Manuscript under review at ICLR 2027}
+}</code></pre>
+</div></section></main>
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

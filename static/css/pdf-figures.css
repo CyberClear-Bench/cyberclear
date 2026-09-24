@@ -1,0 +1,33 @@
+/* PDF figure support for the original academic page template. */
+.paper-figure { margin: 1.5rem 0; }
+.pdf-canvas-frame { aspect-ratio: var(--pdf-ratio); width: 100%; display: flex; align-items: center; justify-content: center; background: #fff; overflow: hidden; }
+.pdf-canvas-frame canvas { display: block; width: 100%; height: auto; max-width: 100%; }
+.pdf-loading, .pdf-error { font-size: 0.875rem; padding: 1rem; color: var(--text-secondary); }
+.paper-figure .subtitle { margin: 1.25rem auto 0.5rem; font-size: 1rem; line-height: 1.7; }
+.pdf-source { font-size: 0.8125rem; margin: 0.5rem 0 0; }
+.results-carousel .paper-figure { margin: 0; }
+.results-carousel .pdf-canvas-frame { height: 430px; aspect-ratio: auto; }
+.results-carousel .pdf-canvas-frame canvas { width: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+.results-table { max-width: 800px; margin: 2rem auto; }
+.paper-viewer { display: block; border: 1px solid var(--border-color); border-radius: var(--border-radius); background: #fff; }
+.results-carousel .slider-navigation-next, .results-carousel .slider-navigation-previous { z-index: 3; }
+@media (max-width: 768px) {
+  .results-carousel .pdf-canvas-frame { height: 260px; }
+  .paper-figure .subtitle { font-size: 0.9375rem; }
+  .paper-viewer { height: 480px; }
+  .scroll-to-top { bottom: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero, .section { animation: none; }
+}
+
+/* Author details and the two requested resource icons. */
+.publication-authors sup { margin-left: 0.16em; font-size: 0.65em; }
+.publication-affiliations { font-size: 1.08rem !important; line-height: 1.8; }
+.publication-author-notes { margin: -0.35rem 0 1.25rem; font-size: 0.875rem; color: var(--text-secondary); }
+.publication-author-notes span { display: inline-block; margin: 0 0.35rem; }
+.publication-links .icon img { display: block; width: 22px; height: 22px; max-width: none; }
+.resource-status { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.resource-status img, .resource-status svg { width: 22px; height: 22px; flex-shrink: 0; }
+.resource-status { scroll-margin-top: 2rem; }
